@@ -5,16 +5,8 @@
     background-color: #191919 ;
     position: relative;
 }
-.content-AreaTemp::-webkit-scrollbar{
-    width: 4px !important;
-    background-color: #262626;
-    border-radius: 30px;
-}
-.content-AreaTemp::-webkit-scrollbar-thumb{
-    width: 4px !important;
-    background-color: #EF8109;
-    border-radius: 30px;
-}
+
+
 .content-AreaTemp {
     height: 100%;
     overflow-y: auto;
@@ -22,7 +14,7 @@
     padding: 0 0.3rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .woodPecker {
     display: flex;
@@ -44,14 +36,31 @@
 .active-menu {
     transform: rotateX(180deg); /* Inverte a seta para baixo no hover */
 }
+.content-lista-temp{
+    width: 100%;
+    height: calc(100% - 200px);
+    overflow: hidden;
+}
 .lista-AreaTemp {
-    width: 400px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 100%;
     gap: 10px;
+    padding: 0.2rem 0rem ;
+}
+.lista-AreaTemp::-webkit-scrollbar{
+    background-color: #262626;
+    border-radius: 30px;
+    width: 10px;
+}
+.lista-AreaTemp::-webkit-scrollbar-thumb{
+    background-color: #A21B0F;
+    border-radius: 30px;
 }
 .card {
-    width: 185px;
+    width: 180px;
     height: 200px;
     flex-shrink: 0;
     overflow: hidden;
@@ -64,7 +73,7 @@
 }
 .active-card {
     background-color: #A21B0F;
-    width: 185px;
+    width: 180px;
     height: 200px;
     flex-shrink: 0;
     overflow: hidden;

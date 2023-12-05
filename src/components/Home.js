@@ -46,20 +46,23 @@ export default function Home() {
                                 </span>
                             </div>
                         </div>
-                        <ul className="lista-AreaTemp">
-                            {DATA && DATA.map((TEMPORADA, index) => (
-                                <li className={index === SELECTTEMPORADA ? 'active-card' : 'card'} key={index} onClick={() => { handleTemporada(index); SETSELECTTEMPORADA(index) }}>
-                                    <div className='card-img'>
-                                        <img src={`${TEMPORADA.imagem}`} alt="Imagem da temporada"></img>
-                                        {/* Revomver o link http://localhost:8080 pelos links reais, quando os arquivos forem hospedados 
+                        <div className='content-lista-temp'>
+                            <ul className="lista-AreaTemp">
+                                {DATA && DATA.map((TEMPORADA, index) => (
+                                    <li className={index === SELECTTEMPORADA ? 'active-card' : 'card'} key={index} onClick={() => { handleTemporada(index); SETSELECTTEMPORADA(index) }}>
+                                        <div className='card-img'>
+                                            <img src={`${TEMPORADA.imagem}`} alt="Imagem da temporada"></img>
+                                            {/* Revomver o link http://localhost:8080 pelos links reais, quando os arquivos forem hospedados 
                                         http://localhost:8080 */}
-                                    </div>
-                                    <div className='card-title'>
-                                        <span>{TEMPORADA.title}</span>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                                        </div>
+                                        <div className='card-title'>
+                                            <span>{TEMPORADA.title}</span>
+                                        </div>
+                                    </li>
+                                ))}
+                               
+                            </ul>
+                        </div>
                         ol
                     </div>
                 </div>
