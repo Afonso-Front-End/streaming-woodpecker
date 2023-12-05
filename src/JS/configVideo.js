@@ -24,8 +24,8 @@ export default function GetApi() {
     }
 
 
-    // const DATA_BASE = "https://api-node-streaming.vercel.app"
-    const DATA_BASE = "http://localhost:8080"
+    const DATA_BASE = "https://api-node-streaming.vercel.app"
+    // const DATA_BASE = "http://localhost:8080"
 
     useEffect(() => {
         try {

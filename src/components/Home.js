@@ -4,7 +4,7 @@ import ConfigVideo from '../JS/configVideo';
 
 export default function Home() {
     const [SELECTTEMPORADA, SETSELECTTEMPORADA] = useState(3)
-    
+
     const {
         videoRef,
         playVideo,
@@ -40,7 +40,7 @@ export default function Home() {
                     <div className={`content-AreaTemp ${MENU ? 'active-content-AreaTemp' : ''}`}>
                         <div className="woodPecker">
                             <span>WoodPecker</span>
-                            <div className={`menu ${ MENU ? 'active-menu' : ''}`} onClick={handleMenuMobile}>
+                            <div className={`menu ${MENU ? 'active-menu' : ''}`} onClick={handleMenuMobile}>
                                 <span className="material-symbols-outlined">
                                     stat_1
                                 </span>
@@ -50,8 +50,9 @@ export default function Home() {
                             {DATA && DATA.map((TEMPORADA, index) => (
                                 <li className={index === SELECTTEMPORADA ? 'active-card' : 'card'} key={index} onClick={() => { handleTemporada(index); SETSELECTTEMPORADA(index) }}>
                                     <div className='card-img'>
-                                        <img src={`http://localhost:8080${TEMPORADA.imagem}`} alt="Imagem da temporada"></img>
-                                        {/* Revomver o link http://localhost:8080 pelos links reais, quando os arquivos forem hospedados */}
+                                        <img src={`${TEMPORADA.imagem}`} alt="Imagem da temporada"></img>
+                                        {/* Revomver o link http://localhost:8080 pelos links reais, quando os arquivos forem hospedados 
+                                        http://localhost:8080 */}
                                     </div>
                                     <div className='card-title'>
                                         <span>{TEMPORADA.title}</span>
@@ -85,7 +86,7 @@ export default function Home() {
                         <div className="container-video">
                             <div className="content-video">
                                 <video id='video' key={videoUrl} ref={videoRef} onEnded={handleEnded} onTimeUpdate={onTimeUpdate}>
-                                    <source src={`http://localhost:8080${videoUrl}`} />
+                                    <source src={`${videoUrl}`} />
                                     {/* Revomver o link http://localhost:8080 pelos links reais, quando os arquivos forem hospedados */}
                                 </video>
 
