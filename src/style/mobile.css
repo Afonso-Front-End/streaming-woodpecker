@@ -1,0 +1,132 @@
+/* Estilos padrão */
+@media screen and (max-width: 1300px) {
+    .menu {
+        display: block;
+    }
+
+    .lista-AreaTemp {
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    #container #content {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+    }
+
+    .container-AreaVideo,
+    .container-AreaTemp,
+    .container-AreaTemp.active-container-AreaTemp,
+    .container-AreaTemp.active-container-AreaTemp {
+        width: 100%;
+    }
+
+    .container-AreaTemp{
+        height: 50px;
+        transition: 0.3s ease-in-out;
+
+    }
+    
+
+    .active-container-AreaTemp {
+        position: fixed;
+        height: 100%;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .content-AreaTemp,
+    .active-content-AreaTemp,
+    .container-AreaVideo {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .active-content-AreaTemp {
+        overflow-y: auto;
+    }
+}
+
+/* Estilos para telas menores (max-width: 750px) */
+@media screen and (max-width: 750px) {
+    .container-AreaVideo {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .content-AreaVideo {
+        width: 100%;
+        height: calc(100% - 50%);
+    }
+
+    .container-episodios {
+        width: 100%;
+        height: calc(100% - 50%);
+    }
+    .content-video {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Estilos para telas menores (max-width: 450px) */
+@media screen and (max-width: 450px) {
+    .card,
+    .active-card {
+        width: 160px;
+        height: 170px;
+    }
+}
+
+/* Estilos para telas menores (max-width: 370px) */
+@media screen and (max-width: 370px) {
+    .card,
+    .active-card {
+        width: 140px;
+        height: 170px;
+    }
+}
+
+/* Estilos específicos para iPads em modo retrato ou paisagem */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px),
+       only screen and (min-device-width: 834px) and (max-device-width: 1112px),
+       only screen and (min-device-width: 834px) and (max-device-width: 1194px) {
+    .container-AreaVideo,
+    .container-episodios {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .content-AreaVideo {
+        width: 100%;
+        height: 50%;
+    }
+
+    .container-episodios {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+/* Estilos para telas específicas (width: 1024px, height: 600px) ou (width: 600px, height: 1024px) */
+@media only screen and (width: 1024px) and (height: 600px),
+       only screen and (width: 600px) and (height: 1024px) {
+    .container-AreaVideo {
+        flex-direction: row;
+    }
+
+    .content-AreaVideo,
+    .container-episodios {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,96 @@
+.container-AreaTemp {
+    width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #191919 ;
+    position: relative;
+}
+.content-AreaTemp::-webkit-scrollbar{
+    width: 4px !important;
+    background-color: #262626;
+    border-radius: 30px;
+}
+.content-AreaTemp::-webkit-scrollbar-thumb{
+    width: 4px !important;
+    background-color: #EF8109;
+    border-radius: 30px;
+}
+.content-AreaTemp {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.woodPecker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem;
+    height: 60px;
+}
+.woodPecker span{
+    font-size: 2rem;
+    font-weight: 200;
+}
+.menu {
+    transition: transform 300ms linear;
+    cursor: grab;
+    display: none;
+}   
+
+.active-menu {
+    transform: rotateX(180deg); /* Inverte a seta para baixo no hover */
+}
+.lista-AreaTemp {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.card {
+    width: 185px;
+    height: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #262626;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: grab;
+}
+.active-card {
+    background-color: #A21B0F;
+    width: 185px;
+    height: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover{
+    background-color: #353535;
+    transition: 0.3s ease-in-out;
+}
+.card-img {
+    width: 100%;
+    height: 120px;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+}
+.card-title {
+    text-align: center;
+    height: 80px;
+    padding: 1rem 0;
+}
+.card-title span{
+    font-size: 17px;
+    font-weight: 300;
+}
