@@ -1,5 +1,5 @@
 
-## [Sreaming Animado](https://app-streaming-home.netlify.app/)
+## [Sreaming Animado](https://streaming-woodpecker.netlify.app/)
 
 Um repositório dedicado a um app de streaming de desenho.
 
