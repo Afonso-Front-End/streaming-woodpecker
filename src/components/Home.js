@@ -65,7 +65,11 @@ export default function Home() {
 
                             </ul>
                         </div>
-                        ol
+                        <div className='desenvolvedor'>
+                            <span>Area do desenvolvedor</span>
+                            <p>Este projeto ainda esta em desenvolvimento.</p>
+                            <p>Banda larga limitada de ate 5GB</p>
+                        </div>
                     </div>
                 </div>
                 <div className="container-AreaVideo">
