@@ -79,6 +79,7 @@ export default function GetApi() {
 
     }
 
+
     const handleEnded = () => {
         if (currentTime >= duration - 2) {
             // O vídeo está perto do final, avance para o próximo episódio
@@ -88,39 +89,67 @@ export default function GetApi() {
                 SETEPISODIOSELECIONADO(nextEpisodeIndex);
                 setVideoUrl(DATAEPISODIOS[nextEpisodeIndex].episodePath);
                 setTituloEpisodio(DATAEPISODIOS[nextEpisodeIndex].episodeTitle);
-                setTimeout(() => {  
+                setTimeout(() => {
                     playVideo()
                     setIsPlayng(false)
                 }, 500);
             }
         }
     }
-    
+
+
+    let clikCount = 0
+    const handleNext5s = () => {
+        clikCount++
+        if (clikCount === 2 && videoRef.current) {
+            videoRef.current.currentTime += 5;
+            console.log(clikCount)
+            clikCount = 0;
+        }
+        setTimeout(() => {
+            clikCount = 0;
+        }, 200);
+        console.log(clikCount)
+    }
+
     const handleNext = () => {
         const proximoIndiceEpisodio = EPISODIOSELECIONADO + 1;
         if (proximoIndiceEpisodio < DATAEPISODIOS.length) {
             atualizarEstadoEpisodio(proximoIndiceEpisodio);
         }
     }
-    
+
     const handlePrev = () => {
         const proximoIndiceEpisodio = EPISODIOSELECIONADO - 1;
         if (proximoIndiceEpisodio >= 0) {
             atualizarEstadoEpisodio(proximoIndiceEpisodio);
         }
     }
-    
+
+    const handlePrev5s = () => {
+        clikCount++
+        if (clikCount === 2 && videoRef.current) {
+            videoRef.current.currentTime -= 5;
+            console.log(clikCount)
+            clikCount = 0;
+        }
+        setTimeout(() => {
+            clikCount = 0;
+        }, 200);
+        console.log(clikCount)
+    }
+
     const atualizarEstadoEpisodio = (indice) => {
         SETEPISODIOSELECIONADO(indice);
         setVideoUrl(DATAEPISODIOS[indice].episodePath);
         setTituloEpisodio(DATAEPISODIOS[indice].episodeTitle);
-    
+
         setTimeout(() => {
             playVideo();
             setIsPlayng(false);
         }, 500);
     }
-    
+
 
     const handlePointerMouseDown = (e) => {
         const progressBar = document.getElementById("progress-bar");
@@ -208,12 +237,12 @@ export default function GetApi() {
         onTimeUpdate()
     }, 500)
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (window.innerWidth >= 1300) {
             SETMENU(false)
         }
     });
-        
+
     return {
         videoUrl,
         videoRef,
@@ -241,5 +270,7 @@ export default function GetApi() {
         handleEnded,
         handleNext,
         handlePrev,
+        handleNext5s,
+        handlePrev5s,
     }
 }

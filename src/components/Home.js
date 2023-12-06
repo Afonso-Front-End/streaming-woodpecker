@@ -29,7 +29,9 @@ export default function Home() {
         MENU,
         handleEnded,
         handleNext,
-        handlePrev
+        handlePrev,
+        handleNext5s,
+        handlePrev5s
     } = ConfigVideo();
 
 
@@ -60,7 +62,7 @@ export default function Home() {
                                         </div>
                                     </li>
                                 ))}
-                               
+
                             </ul>
                         </div>
                         ol
@@ -98,7 +100,7 @@ export default function Home() {
                                         <span>{tituloEpsiosio}</span>
                                     </div>
                                     <div className='controls-play'>
-                                        <div>
+                                        <div className='i' onClick={handlePrev5s}>
                                             <button id='voltar' onClick={handlePrev}>
                                                 <span className="material-symbols-outlined">
                                                     skip_previous
@@ -121,7 +123,7 @@ export default function Home() {
                                                 </button>
                                             )}
                                         </div>
-                                        <div>
+                                        <div className="i" onClick={handleNext5s}>
                                             <button id='proximo' onClick={handleNext}>
                                                 <span className="material-symbols-outlined">
                                                     skip_next
