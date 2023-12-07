@@ -9,8 +9,6 @@ Este projeto é um projeto de app de streaming em [REACTJS JSX CSS JS] que permi
 
 ## Funcionalidades Principais
 
-- Tela de login.
-- Tela de cadastro.
 - Interface de usuário simples e amigável.
 
 ## Capturas de Tela
