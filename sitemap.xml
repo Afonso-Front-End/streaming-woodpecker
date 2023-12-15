@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://streaming-woodpecker.netlify.app</loc>
-        <changefreq>weekly</changefreq>
+        <monthly>weekly</monthly>
         <priority>0.8</priority>
     </url>
 </urlset>
