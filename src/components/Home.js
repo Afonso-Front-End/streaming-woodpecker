@@ -58,7 +58,7 @@ export default function Home() {
                                         http://localhost:8080 */}
                                         </div>
                                         <div className='card-title'>
-                                            <title>{TEMPORADA.title}</title>
+                                            <p>{TEMPORADA.title}</p>
                                         </div>
                                     </li>
                                 ))}
