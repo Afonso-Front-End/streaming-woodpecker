@@ -1,0 +1,338 @@
+.container-video,
+.content-video {
+    width: 100%;
+    height: 100%;
+}
+
+.container-video {
+    padding: 0.8rem;
+}
+
+.content-video {
+    background-color: #2A2C2E;
+    border-radius: 5px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+video {
+    background-color: black;
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+}
+
+.container-controls {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.096);
+    /* opacity: 0; */
+}
+
+.content-controls {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.096);
+    padding: 0.5rem;
+}
+
+/*  */
+
+
+.content-controls.show {
+    opacity: 1;
+    /* Show when the class is added */
+}
+
+/*  */
+
+.title-video {
+    width: 100%;
+}
+
+.controls-buttons {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #181818;
+    border-radius: 5px;
+    padding: 0.2rem;
+}
+
+.current-time {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    border-radius: 30px;
+    position: relative;
+    background-color: #2A2C2E;
+
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #00ADEF;
+    border-radius: 30px;
+}
+
+.teste {
+    width: 100%;
+}
+
+.duration-pointer {
+    background-color: #F2F2F2;
+    width: 50px;
+    height: 20px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -38px;
+    left: -23px;
+    border-radius: 3px;
+    cursor: grab;
+}
+
+
+.duration-pointer span {
+    color: black;
+    position: relative;
+    z-index: 1;
+
+}
+
+.duration-pointer p {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #F2F2F2;
+    position: absolute;
+    z-index: 0;
+    top: 10px;
+    transform: rotate(45deg);
+}
+
+.buttons-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+}
+
+.button-play button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-play button,
+.buttons-actions button {
+    padding: 0.4rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+
+.buttons-actions button {
+    position: relative;
+}
+
+.button-episodios-video {
+    display: none !important;
+}
+
+.container-volume {
+    width: 52px;
+    height: 120px;
+    background-color: #181818;
+    position: absolute;
+    top: -130px;
+    left: 49px;
+    border-radius: 5px;
+
+}
+
+.volume {
+    width: 52px;
+    height: 120px;
+    /* background-color: #00ADEF; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.volume input{
+    height: 100%;
+    padding: 0.5rem;
+}
+#text-volume {
+    position: absolute;
+    right: -58px;
+    /* top: 0; */
+    bottom: 0;
+    border: 1px solid #2A2C2E;
+    border-radius: 4px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #F2F2F2; */
+    background-color: #181818;
+    padding: 0.1rem 0.8rem;
+}
+
+
+
+.banner-video {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-video-title h1 {
+    font-family: "LibreBarcode128Text";
+    font-size: 5rem;
+}
+
+.banner-video-title p {
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.banner-video-title span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1.5rem 0;
+    text-transform: capitalize;
+}
+
+.banner-video-title span a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-video-title img{
+    width: 100px;
+    height: 100px;
+}
+
+/* Estilo geral do input range */
+input[type="range"] {
+    -webkit-appearance: none; /* Remove o estilo padrão no Chrome e Safari */
+    width: 110px; /* Ajusta a largura do input */
+    height: 6px; /* Altura do track */
+    background: transparent; /* Cor do track */
+    outline: none; /* Remove a borda padrão ao focar */
+    opacity: 0.7; /* Transparência do track */
+    transition: opacity 0.2s; /* Transição suave ao interagir */
+    border-radius: 30px;
+    position: relative;
+    transform: rotate(-90deg);
+}
+
+/* Opacidade ao passar o mouse */
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* Estilo do track no Firefox */
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    border: none;
+    border-radius: 3px;
+}
+
+/* Estilo do thumb no Firefox */
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none; /* Remove o estilo padrão */
+    width: 15px;
+    height: 15px;
+    background: #FFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px; /* Ajusta a posição vertical do thumb */ 
+}
+
+/* Estilo do track no Webkit (Chrome, Safari, etc) */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    background: #00ADEF;
+    border-radius: 3px;
+}
+
+/* Estilo do thumb no Webkit */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove o estilo padrão */
+    width: 15px;
+    height: 15px;
+    background: #FFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4.5px; /* Ajusta a posição vertical do thumb */ 
+}
+
+/* Estilo do track no Edge */
+input[type="range"]::-ms-track {
+    width: 100%;
+    height: 6px;
+    background: transparent; /* Necessário para remover o track padrão */
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Estilo do thumb no Edge */
+input[type="range"]::-ms-thumb {
+    -webkit-appearance: none; /* Remove o estilo padrão */
+    width: 15px;
+    height: 15px;
+    background: #FFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px; /* Ajusta a posição vertical do thumb */ 
+}
+
+/* Estilo do track do range no Edge */
+input[type="range"]::-ms-fill-lower {
+    /* background: #ddd; */
+}
+
+/* Estilo do track do range no Edge */
+input[type="range"]::-ms-fill-upper {
+    /* background: #ddd; */
+}
+
+
