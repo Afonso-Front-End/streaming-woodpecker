@@ -233,9 +233,10 @@ export default function GetApi() {
     const videoDuration = formatTime(duration);
     const videoCurrentTime = formatTime(currentTime);
 
-    setTimeout(() => {
-        onTimeUpdate()
-    }, 500)
+    // setTimeout(() => {
+    //     onTimeUpdate()
+    // }, 500)
+    console.log(videoCurrentTime)
 
     window.addEventListener('resize', function () {
         if (window.innerWidth >= 1300) {
