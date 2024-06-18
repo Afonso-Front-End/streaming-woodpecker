@@ -176,6 +176,20 @@
 }
 
 @media screen and (max-width: 600px) {
+    .duration-pointer {
+        top: -30px;
+    }
+    .controls-buttons {
+        position: relative;
+    }
+
+    .current-time {
+        position: absolute;
+        top: -25px;
+        left: 0;
+        padding: 0 0.2rem;
+    }
+
     .ul-lista {
         grid-template-columns: repeat(2, 1fr);
         /* 2 colunas em telas menores que 768px */
@@ -208,7 +222,7 @@
     }
 
     .list-episodes ul li {
-        padding: 0rem 0.7rem;
+        padding: 0.3rem 0.7rem;
     }
 
     .container-temporada,

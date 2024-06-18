@@ -4,7 +4,7 @@ import "./Temporada.css";
 
 const urlbase = "https://api-node-streaming.vercel.app";
 
-export default function Temporada({ setTemporadaSelecionada, setLoading, setTemporadaAtual }) {
+export default function Temporada({ setTemporadaSelecionada, setLoading, setTemporadaAtual,  }) {
     const [seasonListState, setSeasonListState] = useState([]);
 
     const handleImageLoaded = () => {
@@ -47,21 +47,6 @@ export default function Temporada({ setTemporadaSelecionada, setLoading, setTemp
             <div className="content-temporada">
                 <div className="lista-temporada">
                     <ul className="ul-lista">
-                        {seasonListState.map((item, index) => (
-                            <li className="li-card" key={index} onClick={() => selectSeason(index, item)}>
-                                <div className="li-card-img">
-                                    <img
-                                        src={item.imagem}
-                                        alt="Season Thumbnail"
-                                        onLoad={handleImageLoaded}
-                                        onError={handleImageError} />
-                                </div>
-                                <div className="li-card-title">
-                                    <p>{item.title}</p>
-                                    <p>{item.database}</p>
-                                </div>
-                            </li>
-                        ))}
                         {seasonListState.map((item, index) => (
                             <li className="li-card" key={index} onClick={() => selectSeason(index, item)}>
                                 <div className="li-card-img">

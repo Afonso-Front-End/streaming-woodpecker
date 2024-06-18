@@ -8,7 +8,9 @@ export default function Index() {
     const [temporadaSelecionada, setTemporadaSelecionada] = useState(null);
     const [episodioSelecionado, setEpisodioSelecionado] = useState(null);
     const [temporadaAtual, setTemporadaAtual] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
+    const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
+    const [episodeActive, setEpisodeActive] = useState(null)
 
     const nodeRef = useRef(null);
 
@@ -16,12 +18,17 @@ export default function Index() {
         setTemporadaSelecionada(null)
         setLoading(false)
     }
-    function list() {
+
+    function handleListEpisodes() {
         setTemporadaSelecionada(temporadaAtual)
-        setEpisodioSelecionado(null)
-        console.log(temporadaAtual)
+        // console.log(episodioSelecionado)
+        // console.log(episodioSelecionado)
+        // setEpisodeActive(episodioSelecionado.episodeNumber)
+
     }
-    // console.log("temp select",temporadaSelecionada)
+
+    // setEpisodioSelecionado(null)
+
 
     return (
         <div className="container">
@@ -56,7 +63,9 @@ export default function Index() {
                             setTemporadaSelecionada={setTemporadaSelecionada}
                             temporadaSelecionada={temporadaSelecionada}
                             temporadaAtual={temporadaAtual}
-                            list={list}
+                            handleListEpisodes={handleListEpisodes}
+                            setEpisodioSelecionado={setEpisodioSelecionado}
+                            setCurrentEpisodeIndex={setCurrentEpisodeIndex}
                         />
                     </CSSTransition>
                 </div>
@@ -75,6 +84,8 @@ export default function Index() {
                         setEpisodioSelecionado={setEpisodioSelecionado}
                         exiteseason={exiteseason}
                         setLoading={setLoading}
+                        setEpisodeActive={setEpisodeActive}
+                        episodeActive={episodeActive}
                     />
 
                 </CSSTransition>

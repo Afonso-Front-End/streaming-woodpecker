@@ -4,9 +4,8 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import { IoMdVolumeHigh } from "react-icons/io";
 import "./Video.css";
-import { GrGithub } from "react-icons/gr";
 
-const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, temporadaAtual, setTemporadaSelecionada, list }, ref) => {
+const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo ,setEpisodioSelecionado,temporadaAtual,setCurrentEpisodeIndex}, ref) => {
   const handleVideoLoadedMedata = () => {
     setLoading(false);
     exiteseason()
@@ -146,6 +145,7 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
     handleTimeUpdate();
     handleVideoLoadedMedata()
     handleVideoError()
+    play()
   };
 
   function handleMouseDown(e) {
@@ -168,8 +168,27 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
   function handleMouseUpOrTouchEnd() {
     setIsDragging(false);
   }
+  
+  async function playNextVideo() {
+    setCurrentEpisodeIndex(prevIndex => {
+        const nextIndex = prevIndex + 1;
+
+        // Verificar se há mais episódios para reproduzir
+        if (nextIndex >= temporadaAtual.data.arquivo.length) {
+            console.log("No more episodes to play.");
+            return prevIndex; // Não altera o índice se não houver mais episódios
+        }
+
+        const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
 
 
+        setEpisodioSelecionado(nextEpisode);
+
+
+        return nextIndex;
+    });
+}
+  
   useEffect(() => {
     if (isDragging) {
       window.addEventListener('mousemove', handleMouseOrTouchMove);
@@ -201,9 +220,16 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
               ref={videoRef}
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleVideoLoaded}
-            ></video>
+              onEnded={playNextVideo}
+            >
 
-            <div className="container-controls" onMouseMove={handleMouseMove} onTouchMove={handleMouseOrTouchMove} style={{ cursor: `${cursorr ? "auto" : "none"}` }}>
+            </video>
+
+            <div className="container-controls"
+              onMouseMove={handleMouseMove}
+              onTouchMove={handleMouseOrTouchMove}
+              style={
+                { cursor: `${cursorr ? "auto" : "none"}` }}>
               {isControl && (
                 <div className={`content-controls ${isControl ? "show" : ""}`}>
                   <div className="title-video">
@@ -224,8 +250,11 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                     </div>
 
                     <div className="current-time">
-                      <div className="progress-bar" ref={progressContainerRef}>
-                        <div className="progress" ref={progressBarRef} style={{ width: `${pointerPosition}%` }}>
+                      <div className="progress-bar"
+                        ref={progressContainerRef}>
+                        <div className="progress"
+                          ref={progressBarRef}
+                          style={{ width: `${pointerPosition}%` }}>
                           <div
                             className="duration-pointer"
                             style={{ left: `calc(${pointerPosition}% - 23px)` }}
@@ -268,7 +297,7 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                         )}
                       </button>
 
-                      <button className="button-episodios-video" onClick={list}>Episodios</button>
+                      <button className="button-episodios-video" onClick={handleListEpisodes}>Episodios</button>
 
                     </div>
                   </div>

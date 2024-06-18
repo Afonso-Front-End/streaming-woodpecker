@@ -4,13 +4,19 @@ import { AiOutlineClose } from "react-icons/ai";
 import img from '../../assets/react-js.png';
 import { CiCalendarDate } from "react-icons/ci";
 
-const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, setLoading }, ref) => {
+const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, setLoading, setEpisodeActive ,episodeActive}, ref) => {
+    // const [episodeActive, setEpisodeActive] = useState(null)
     if (!temporada) {
         return null;
     }
 
-    function selectepisode(episode, data) {
-        setEpisodioSelecionado(episode, data);
+    function selectepisode(episode) {
+        setEpisodioSelecionado(episode);
+        setEpisodeActive(episode.id)
+        console.log(episode.episodeTitle)
+        console.log(episode)
+        console.log(episode.id)
+        // console.log(episodeActive)
         setLoading(true)
     }
 
@@ -39,7 +45,7 @@ const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, 
                     </div>
                     <ul>
                         {temporada && temporada.data.arquivo.map((item) => (
-                            <li key={item.episodeNumber} onClick={() => selectepisode(item, item.data)}>
+                            <li key={item.episodeNumber} onClick={() => selectepisode(item, item.data)} className={`${episodeActive === item.id ? "epidodeActive" : ""}`}>
                                 <div className="id-episode"><span>{item.episodeNumber}</span></div>
                                 <div className="content-img-episode" >
                                     <div className="img-episode" style={{ backgroundImage: `url(${img})` }}></div>
