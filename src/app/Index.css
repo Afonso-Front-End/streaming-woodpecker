@@ -187,16 +187,29 @@
 }
 
 @media screen and (max-width: 650px) {
-    .button-play button, .buttons-actions button {
+
+    .button-play button,
+    .buttons-actions button {
         padding: 0.1rem 0.4rem;
     }
+
     .ul-lista {
         grid-template-columns: repeat(3, 1fr);
         /* 2 colunas em telas menores que 768px */
     }
 }
 
+@media screen and (max-width: 670px) and (min-height: 375px) {
+    .controls-buttons {
+        border-radius: 0;
+        padding: 0;
+    }
+    .content-controls {
+        padding: 0 0.1rem;
+    }
+}
 @media screen and (max-width: 600px) {
+    
     .duration-pointer {
         top: -30px;
     }
@@ -219,6 +232,7 @@
 }
 
 @media screen and (max-width: 450px) {
+    
     .ul-lista {
         display: flex;
         flex-direction: column;
