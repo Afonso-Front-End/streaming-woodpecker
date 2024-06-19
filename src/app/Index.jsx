@@ -92,6 +92,7 @@ export default function Index() {
                             setEpisodioSelecionado={setEpisodioSelecionado}
                             setCurrentEpisodeIndex={setCurrentEpisodeIndex}
                             handleListTemp={handleListTemp}
+                            setEpisodeActive={setEpisodeActive}
                         />
                     </CSSTransition>
                 </div>

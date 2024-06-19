@@ -8,7 +8,7 @@ import { RiDropdownList } from "react-icons/ri";
 import { TbPlayerSkipForward, TbPlayerSkipBack } from "react-icons/tb";
 import "./Video.css";
 
-const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo, setEpisodioSelecionado, temporadaAtual, setCurrentEpisodeIndex, handleListTemp }, ref) => {
+const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo, setEpisodioSelecionado, temporadaAtual, setCurrentEpisodeIndex, handleListTemp , setEpisodeActive}, ref) => {
   const handleVideoLoadedMedata = () => {
     setLoading(false);
     exiteseason()
@@ -184,7 +184,8 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
 
       const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
       console.log(nextIndex)
-
+      setEpisodeActive(nextEpisode.id)
+      console.log(nextEpisode)
       setEpisodioSelecionado(nextEpisode);
 
 
