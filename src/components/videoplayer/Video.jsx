@@ -322,8 +322,11 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                         )}
                       </button>
 
-                      <button className="button-episodios-video" onClick={handleListEpisodes}><RiFileList2Line size={15} /></button>
-                      <button className="button-list-temp" onClick={handleListTemp}><RiDropdownList size={15} /></button>
+                      {!isFullscreen && (
+                        <>
+                          <button className="button-episodios-video" onClick={handleListEpisodes}><RiFileList2Line size={15} /></button>
+                          <button className="button-list-temp" onClick={handleListTemp}><RiDropdownList size={15} /></button></>
+                      )}
 
                     </div>
                   </div>
