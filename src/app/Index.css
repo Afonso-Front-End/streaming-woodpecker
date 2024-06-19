@@ -200,13 +200,13 @@
 }
 
 @media screen and (max-width: 670px) and (min-height: 375px) {
-    .controls-buttons {
+    /* .controls-buttons {
         border-radius: 0;
         padding: 0;
     }
     .content-controls {
         padding: 0 0.1rem;
-    }
+    } */
 }
 @media screen and (max-width: 600px) {
     
