@@ -11,24 +11,37 @@ export default function Index() {
     const [loading, setLoading] = useState(false)
     const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
     const [episodeActive, setEpisodeActive] = useState(null)
+    const [listTemp, setListTemp] = useState(null)
+
 
     const nodeRef = useRef(null);
 
+    
+
+    function handleListEpisodes() {
+        console.log(temporadaAtual)
+        setTemporadaSelecionada(temporadaAtual)
+    }
+
+    function handleListTemp() {
+        setListTemp(true)
+    }
+
+    function handleListTempExite() {
+        setListTemp(null)
+        console.log(temporadaAtual)
+        // temporadaAtual.forEach(element => {
+        // });
+    }
+
+    function selectSeason(index, data) {
+        setTemporadaSelecionada({ index, data });
+        setTemporadaAtual({ index, data })
+    }
     function exiteseason() {
         setTemporadaSelecionada(null)
         setLoading(false)
     }
-
-    function handleListEpisodes() {
-        setTemporadaSelecionada(temporadaAtual)
-        // console.log(episodioSelecionado)
-        // console.log(episodioSelecionado)
-        // setEpisodeActive(episodioSelecionado.episodeNumber)
-
-    }
-
-    // setEpisodioSelecionado(null)
-
 
     return (
         <div className="container">
@@ -44,7 +57,19 @@ export default function Index() {
                 )}
 
                 <div className="left">
-                    <Temporada setTemporadaSelecionada={setTemporadaSelecionada} setLoading={setLoading} setTemporadaAtual={setTemporadaAtual} />
+
+                    <Temporada
+
+                        setTemporadaSelecionada={setTemporadaSelecionada}
+                        setLoading={setLoading}
+                        setTemporadaAtual={setTemporadaAtual}
+                        listTemp={listTemp}
+                        handleListTempExite={handleListTempExite}
+                        temporadaAtual={temporadaAtual}
+                        temporadaSelecionada={temporadaSelecionada}
+                        selectSeason={selectSeason}
+                    />
+
                 </div>
 
                 <div className={`right ${episodioSelecionado ? 'right-show' : ''}`}>
@@ -66,6 +91,7 @@ export default function Index() {
                             handleListEpisodes={handleListEpisodes}
                             setEpisodioSelecionado={setEpisodioSelecionado}
                             setCurrentEpisodeIndex={setCurrentEpisodeIndex}
+                            handleListTemp={handleListTemp}
                         />
                     </CSSTransition>
                 </div>
@@ -86,6 +112,8 @@ export default function Index() {
                         setLoading={setLoading}
                         setEpisodeActive={setEpisodeActive}
                         episodeActive={episodeActive}
+                        episodioSelecionado={episodioSelecionado}
+                        setListTemp={setListTemp}
                     />
 
                 </CSSTransition>

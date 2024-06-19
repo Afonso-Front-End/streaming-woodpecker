@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
 import "./Temporada.css";
 
 const urlbase = "https://api-node-streaming.vercel.app";
 
-export default function Temporada({ setTemporadaSelecionada, setLoading, setTemporadaAtual,  }) {
+export default function Temporada({ setTemporadaSelecionada, setLoading, setTemporadaAtual, listTemp, handleListTempExite, selectSeason}) {
     const [seasonListState, setSeasonListState] = useState([]);
 
     const handleImageLoaded = () => {
@@ -35,16 +36,16 @@ export default function Temporada({ setTemporadaSelecionada, setLoading, setTemp
         fetchSeasonList();
     }, []);
 
-    function selectSeason(index, data) {
-        setTemporadaSelecionada({ index, data });
-        setTemporadaAtual({ index, data })
-    }
-
     return (
 
 
-        <div className="container-temporada">
+        <div className={`container-temporada ${listTemp ? "container-temporada-active" : ""}`}>
             <div className="content-temporada">
+                {listTemp && (
+                    <div className="topo-list">
+                        <button className="button-list-temp" onClick={handleListTempExite}><AiOutlineClose size={30} /></button>
+                    </div>
+                )}
                 <div className="lista-temporada">
                     <ul className="ul-lista">
                         {seasonListState.map((item, index) => (

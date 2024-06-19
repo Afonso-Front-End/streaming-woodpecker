@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState, forwardRef } from "react";
-
+import { RiFileList2Line } from "react-icons/ri";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import { IoMdVolumeHigh } from "react-icons/io";
+import { RiDropdownList } from "react-icons/ri";
+
+import { TbPlayerSkipForward, TbPlayerSkipBack  } from "react-icons/tb";
 import "./Video.css";
 
-const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo ,setEpisodioSelecionado,temporadaAtual,setCurrentEpisodeIndex}, ref) => {
+const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo, setEpisodioSelecionado, temporadaAtual, setCurrentEpisodeIndex, handleListTemp }, ref) => {
   const handleVideoLoadedMedata = () => {
     setLoading(false);
     exiteseason()
@@ -145,6 +148,7 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
     handleTimeUpdate();
     handleVideoLoadedMedata()
     handleVideoError()
+    setLoading(false)
     play()
   };
 
@@ -168,27 +172,42 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
   function handleMouseUpOrTouchEnd() {
     setIsDragging(false);
   }
-  
+
   async function playNextVideo() {
     setCurrentEpisodeIndex(prevIndex => {
-        const nextIndex = prevIndex + 1;
+      const nextIndex = prevIndex +1;
 
-        // Verificar se há mais episódios para reproduzir
-        if (nextIndex >= temporadaAtual.data.arquivo.length) {
-            console.log("No more episodes to play.");
-            return prevIndex; // Não altera o índice se não houver mais episódios
-        }
+      if (nextIndex >= temporadaAtual.data.arquivo.length) {
+        console.log("No more episodes to play.");
+        return prevIndex;
+      }
 
-        const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
+      const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
+      console.log(nextIndex)
+
+      setEpisodioSelecionado(nextEpisode);
 
 
-        setEpisodioSelecionado(nextEpisode);
-
-
-        return nextIndex;
+      return nextIndex;
     });
-}
+  }
+
+  async function playNextVideoLeft() {
+    setCurrentEpisodeIndex(prevIndex => {
+      const nextIndex = prevIndex - 1;
   
+      if (nextIndex < 0) {
+        console.log("No more previous episodes to play.");
+        return prevIndex;
+      }
+  
+      const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
+      setEpisodioSelecionado(nextEpisode);
+  
+      return nextIndex;
+    });
+  }
+
   useEffect(() => {
     if (isDragging) {
       window.addEventListener('mousemove', handleMouseOrTouchMove);
@@ -237,7 +256,10 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                   </div>
 
                   <div className="controls-buttons">
-                    <div className="button-play">
+                    <div className="button-play" style={{ display: 'flex', gap: '5px' }}>
+                      <button onClick={playNextVideoLeft}>
+                        <TbPlayerSkipBack size={15} />
+                      </button>
                       {isPlaying ? (
                         <button onClick={pause}>
                           <FaPause />
@@ -247,6 +269,9 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                           <FaPlay />
                         </button>
                       )}
+                      <button >
+                        <TbPlayerSkipForward size={15}  onClick={playNextVideo}/>
+                      </button>
                     </div>
 
                     <div className="current-time">
@@ -297,7 +322,8 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                         )}
                       </button>
 
-                      <button className="button-episodios-video" onClick={handleListEpisodes}>Episodios</button>
+                      <button className="button-episodios-video" onClick={handleListEpisodes}><RiFileList2Line size={15} /></button>
+                      <button className="button-list-temp" onClick={handleListTemp}><RiDropdownList size={15} /></button>
 
                     </div>
                   </div>

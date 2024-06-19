@@ -166,6 +166,9 @@ video {
 .button-episodios-video {
     display: none !important;
 }
+.button-list-temp {
+    display: none !important;
+}
 
 .container-volume {
     width: 52px;

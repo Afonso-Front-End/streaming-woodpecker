@@ -4,20 +4,30 @@ import { AiOutlineClose } from "react-icons/ai";
 import img from '../../assets/react-js.png';
 import { CiCalendarDate } from "react-icons/ci";
 
-const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, setLoading, setEpisodeActive ,episodeActive}, ref) => {
+const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, setLoading, setEpisodeActive, episodeActive, episodioSelecionado, setListTemp }, ref) => {
     // const [episodeActive, setEpisodeActive] = useState(null)
     if (!temporada) {
         return null;
     }
 
     function selectepisode(episode) {
-        setEpisodioSelecionado(episode);
-        setEpisodeActive(episode.id)
-        console.log(episode.episodeTitle)
-        console.log(episode)
-        console.log(episode.id)
-        // console.log(episodeActive)
-        setLoading(true)
+        if (!episodioSelecionado) {
+            setLoading(true)
+            setEpisodioSelecionado(episode);
+            setEpisodeActive(episode.id)
+            console.log(episode)
+            console.log("nada selecionado")
+        } else if (episode.id === episodioSelecionado.id) {
+            setListTemp(null)
+            exiteseason()
+        } else {
+            setLoading(true)
+            setEpisodioSelecionado(episode);
+            setEpisodeActive(episode.id)
+            setListTemp(null)
+            console.log(episode)
+        }
+
     }
 
 
