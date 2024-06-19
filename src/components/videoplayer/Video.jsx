@@ -88,62 +88,9 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
   const videoDuration = formatTime(duration);
   const videoCurrentTime = formatTime(currentTime);
 
-  // function toggleFullscreen() {
-  //   const videoContainer = videoRef.current.parentElement;
-
-  //   if (!document.fullscreenElement) {
-  //     if (videoContainer.requestFullscreen) {
-  //       videoContainer.requestFullscreen();
-  //     } else if (videoContainer.mozRequestFullScreen) {
-  //       // Firefox
-  //       videoContainer.mozRequestFullScreen();
-  //     } else if (videoContainer.webkitRequestFullscreen) {
-  //       // Chrome, Safari and Opera
-  //       videoContainer.webkitRequestFullscreen();
-  //     } else if (videoContainer.msRequestFullscreen) {
-  //       // IE/Edge
-  //       videoContainer.msRequestFullscreen();
-  //     }
-  //     setIsFullscreen(true);
-  //   } else {
-  //     if (document.exitFullscreen) {
-  //       document.exitFullscreen();
-  //     } else if (document.mozCancelFullScreen) {
-  //       // Firefox
-  //       document.mozCancelFullScreen();
-  //     } else if (document.webkitExitFullscreen) {
-  //       // Chrome, Safari and Opera
-  //       document.webkitExitFullscreen();
-  //     } else if (document.msExitFullscreen) {
-  //       // IE/Edge
-  //       document.msExitFullscreen();
-  //     }
-  //     setIsFullscreen(false);
-  //   }
-  // }
   function toggleFullscreen() {
     const videoContainer = videoRef.current.parentElement;
-  
-    // Define um estilo inline para garantir que o contêiner de vídeo ocupe toda a tela
-    videoContainer.style.position = 'relative';
-    videoContainer.style.width = '100vw';
-    videoContainer.style.height = '100vh';
-    videoContainer.style.display = 'flex';
-    videoContainer.style.justifyContent = 'center';
-    videoContainer.style.alignItems = 'center';
-    videoContainer.style.overflow = 'hidden';
-    videoContainer.style.backgroundColor = 'black';
-  
-    const video = videoRef.current;
-    video.style.position = 'absolute';
-    video.style.top = '50%';
-    video.style.left = '50%';
-    video.style.transform = 'translate(-50%, -50%)';
-    video.style.minWidth = '100%';
-    video.style.minHeight = '100%';
-    video.style.width = '100vw';
-    video.style.height = '100vh';
-  
+
     if (!document.fullscreenElement) {
       if (videoContainer.requestFullscreen) {
         videoContainer.requestFullscreen();
@@ -151,7 +98,7 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
         // Firefox
         videoContainer.mozRequestFullScreen();
       } else if (videoContainer.webkitRequestFullscreen) {
-        // Chrome, Safari e Opera
+        // Chrome, Safari and Opera
         videoContainer.webkitRequestFullscreen();
       } else if (videoContainer.msRequestFullscreen) {
         // IE/Edge
@@ -165,35 +112,15 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
         // Firefox
         document.mozCancelFullScreen();
       } else if (document.webkitExitFullscreen) {
-        // Chrome, Safari e Opera
+        // Chrome, Safari and Opera
         document.webkitExitFullscreen();
       } else if (document.msExitFullscreen) {
         // IE/Edge
         document.msExitFullscreen();
       }
       setIsFullscreen(false);
-  
-      // Remove os estilos inline quando sair do modo de tela cheia
-      // videoContainer.style.position = '';
-      // videoContainer.style.width = '';
-      // videoContainer.style.height = '';
-      // videoContainer.style.display = '';
-      // videoContainer.style.justifyContent = '';
-      // videoContainer.style.alignItems = '';
-      // videoContainer.style.overflow = '';
-      // videoContainer.style.backgroundColor = '';
-  
-      video.style.position = '';
-      video.style.top = '';
-      video.style.left = '';
-      video.style.transform = '';
-      video.style.minWidth = '';
-      video.style.minHeight = '';
-      video.style.width = '';
-      video.style.height = '';
     }
   }
-  
 
   function handleMouseMove() {
     setIsControl(true);
