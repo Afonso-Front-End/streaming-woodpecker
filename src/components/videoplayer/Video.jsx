@@ -125,12 +125,24 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
     const videoContainer = videoRef.current.parentElement;
   
     // Define um estilo inline para garantir que o contêiner de vídeo ocupe toda a tela
-    videoContainer.style.width = '100%';
-    videoContainer.style.height = '100%';
+    videoContainer.style.position = 'relative';
+    videoContainer.style.width = '100vw';
+    videoContainer.style.height = '100vh';
     videoContainer.style.display = 'flex';
     videoContainer.style.justifyContent = 'center';
     videoContainer.style.alignItems = 'center';
+    videoContainer.style.overflow = 'hidden';
     videoContainer.style.backgroundColor = 'black';
+  
+    const video = videoRef.current;
+    video.style.position = 'absolute';
+    video.style.top = '50%';
+    video.style.left = '50%';
+    video.style.transform = 'translate(-50%, -50%)';
+    video.style.minWidth = '100%';
+    video.style.minHeight = '100%';
+    video.style.width = '100vw';
+    video.style.height = '100vh';
   
     if (!document.fullscreenElement) {
       if (videoContainer.requestFullscreen) {
@@ -162,12 +174,23 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
       setIsFullscreen(false);
   
       // Remove os estilos inline quando sair do modo de tela cheia
-      videoContainer.style.width = '';
-      videoContainer.style.height = '';
-      videoContainer.style.display = '';
-      videoContainer.style.justifyContent = '';
-      videoContainer.style.alignItems = '';
-      videoContainer.style.backgroundColor = '';
+      // videoContainer.style.position = '';
+      // videoContainer.style.width = '';
+      // videoContainer.style.height = '';
+      // videoContainer.style.display = '';
+      // videoContainer.style.justifyContent = '';
+      // videoContainer.style.alignItems = '';
+      // videoContainer.style.overflow = '';
+      // videoContainer.style.backgroundColor = '';
+  
+      video.style.position = '';
+      video.style.top = '';
+      video.style.left = '';
+      video.style.transform = '';
+      video.style.minWidth = '';
+      video.style.minHeight = '';
+      video.style.width = '';
+      video.style.height = '';
     }
   }
   

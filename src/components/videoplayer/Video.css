@@ -11,19 +11,26 @@
 .content-video {
     /* background-color: #2A2C2E; */
     border-radius: 5px;
-    overflow: hidden;
     position: relative;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
     background-color: black;
 }
 
 video {
     background-color: black;
-    max-width: 100%;
-    max-height: 100%;
-  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .container-controls {
@@ -167,6 +174,7 @@ video {
 .button-episodios-video {
     display: none !important;
 }
+
 .button-list-temp {
     display: none !important;
 }
@@ -190,13 +198,14 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
 }
 
-.volume input{
+.volume input {
     height: 100%;
     padding: 0.5rem;
 }
+
 #text-volume {
     position: absolute;
     right: -58px;
@@ -247,20 +256,28 @@ video {
     align-items: center;
     justify-content: center;
 }
-.banner-video-title img{
+
+.banner-video-title img {
     width: 100px;
     height: 100px;
 }
 
 /* Estilo geral do input range */
 input[type="range"] {
-    -webkit-appearance: none; /* Remove o estilo padrão no Chrome e Safari */
-    width: 110px; /* Ajusta a largura do input */
-    height: 6px; /* Altura do track */
-    background: transparent; /* Cor do track */
-    outline: none; /* Remove a borda padrão ao focar */
-    opacity: 0.7; /* Transparência do track */
-    transition: opacity 0.2s; /* Transição suave ao interagir */
+    -webkit-appearance: none;
+    /* Remove o estilo padrão no Chrome e Safari */
+    width: 110px;
+    /* Ajusta a largura do input */
+    height: 6px;
+    /* Altura do track */
+    background: transparent;
+    /* Cor do track */
+    outline: none;
+    /* Remove a borda padrão ao focar */
+    opacity: 0.7;
+    /* Transparência do track */
+    transition: opacity 0.2s;
+    /* Transição suave ao interagir */
     border-radius: 30px;
     position: relative;
     transform: rotate(-90deg);
@@ -281,13 +298,15 @@ input[type="range"]::-moz-range-track {
 
 /* Estilo do thumb no Firefox */
 input[type="range"]::-moz-range-thumb {
-    -webkit-appearance: none; /* Remove o estilo padrão */
+    -webkit-appearance: none;
+    /* Remove o estilo padrão */
     width: 15px;
     height: 15px;
     background: #FFFF;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: -5px; /* Ajusta a posição vertical do thumb */ 
+    margin-top: -5px;
+    /* Ajusta a posição vertical do thumb */
 }
 
 /* Estilo do track no Webkit (Chrome, Safari, etc) */
@@ -300,33 +319,38 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 /* Estilo do thumb no Webkit */
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove o estilo padrão */
+    -webkit-appearance: none;
+    /* Remove o estilo padrão */
     width: 15px;
     height: 15px;
     background: #FFFF;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: -4.5px; /* Ajusta a posição vertical do thumb */ 
+    margin-top: -4.5px;
+    /* Ajusta a posição vertical do thumb */
 }
 
 /* Estilo do track no Edge */
 input[type="range"]::-ms-track {
     width: 100%;
     height: 6px;
-    background: transparent; /* Necessário para remover o track padrão */
+    background: transparent;
+    /* Necessário para remover o track padrão */
     border-color: transparent;
     color: transparent;
 }
 
 /* Estilo do thumb no Edge */
 input[type="range"]::-ms-thumb {
-    -webkit-appearance: none; /* Remove o estilo padrão */
+    -webkit-appearance: none;
+    /* Remove o estilo padrão */
     width: 15px;
     height: 15px;
     background: #FFFF;
     border-radius: 50%;
     cursor: pointer;
-    margin-top: -5px; /* Ajusta a posição vertical do thumb */ 
+    margin-top: -5px;
+    /* Ajusta a posição vertical do thumb */
 }
 
 /* Estilo do track do range no Edge */
@@ -338,5 +362,3 @@ input[type="range"]::-ms-fill-lower {
 input[type="range"]::-ms-fill-upper {
     /* background: #ddd; */
 }
-
-
