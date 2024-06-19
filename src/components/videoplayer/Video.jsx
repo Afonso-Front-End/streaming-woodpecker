@@ -5,7 +5,7 @@ import { MdFullscreen, MdFullscreenExit } from "react-icons/md";
 import { IoMdVolumeHigh } from "react-icons/io";
 import { RiDropdownList } from "react-icons/ri";
 
-import { TbPlayerSkipForward, TbPlayerSkipBack  } from "react-icons/tb";
+import { TbPlayerSkipForward, TbPlayerSkipBack } from "react-icons/tb";
 import "./Video.css";
 
 const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo, setEpisodioSelecionado, temporadaAtual, setCurrentEpisodeIndex, handleListTemp }, ref) => {
@@ -175,7 +175,7 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
 
   async function playNextVideo() {
     setCurrentEpisodeIndex(prevIndex => {
-      const nextIndex = prevIndex +1;
+      const nextIndex = prevIndex + 1;
 
       if (nextIndex >= temporadaAtual.data.arquivo.length) {
         console.log("No more episodes to play.");
@@ -195,15 +195,15 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
   async function playNextVideoLeft() {
     setCurrentEpisodeIndex(prevIndex => {
       const nextIndex = prevIndex - 1;
-  
+
       if (nextIndex < 0) {
         console.log("No more previous episodes to play.");
         return prevIndex;
       }
-  
+
       const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
       setEpisodioSelecionado(nextEpisode);
-  
+
       return nextIndex;
     });
   }
@@ -269,8 +269,8 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
                           <FaPlay />
                         </button>
                       )}
-                      <button >
-                        <TbPlayerSkipForward size={15}  onClick={playNextVideo}/>
+                      <button onClick={playNextVideo}>
+                        <TbPlayerSkipForward size={15} />
                       </button>
                     </div>
 
