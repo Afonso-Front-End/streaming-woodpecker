@@ -88,9 +88,50 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
   const videoDuration = formatTime(duration);
   const videoCurrentTime = formatTime(currentTime);
 
+  // function toggleFullscreen() {
+  //   const videoContainer = videoRef.current.parentElement;
+
+  //   if (!document.fullscreenElement) {
+  //     if (videoContainer.requestFullscreen) {
+  //       videoContainer.requestFullscreen();
+  //     } else if (videoContainer.mozRequestFullScreen) {
+  //       // Firefox
+  //       videoContainer.mozRequestFullScreen();
+  //     } else if (videoContainer.webkitRequestFullscreen) {
+  //       // Chrome, Safari and Opera
+  //       videoContainer.webkitRequestFullscreen();
+  //     } else if (videoContainer.msRequestFullscreen) {
+  //       // IE/Edge
+  //       videoContainer.msRequestFullscreen();
+  //     }
+  //     setIsFullscreen(true);
+  //   } else {
+  //     if (document.exitFullscreen) {
+  //       document.exitFullscreen();
+  //     } else if (document.mozCancelFullScreen) {
+  //       // Firefox
+  //       document.mozCancelFullScreen();
+  //     } else if (document.webkitExitFullscreen) {
+  //       // Chrome, Safari and Opera
+  //       document.webkitExitFullscreen();
+  //     } else if (document.msExitFullscreen) {
+  //       // IE/Edge
+  //       document.msExitFullscreen();
+  //     }
+  //     setIsFullscreen(false);
+  //   }
+  // }
   function toggleFullscreen() {
     const videoContainer = videoRef.current.parentElement;
-
+  
+    // Define um estilo inline para garantir que o contêiner de vídeo ocupe toda a tela
+    videoContainer.style.width = '100%';
+    videoContainer.style.height = '100%';
+    videoContainer.style.display = 'flex';
+    videoContainer.style.justifyContent = 'center';
+    videoContainer.style.alignItems = 'center';
+    videoContainer.style.backgroundColor = 'black';
+  
     if (!document.fullscreenElement) {
       if (videoContainer.requestFullscreen) {
         videoContainer.requestFullscreen();
@@ -98,7 +139,7 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
         // Firefox
         videoContainer.mozRequestFullScreen();
       } else if (videoContainer.webkitRequestFullscreen) {
-        // Chrome, Safari and Opera
+        // Chrome, Safari e Opera
         videoContainer.webkitRequestFullscreen();
       } else if (videoContainer.msRequestFullscreen) {
         // IE/Edge
@@ -112,15 +153,24 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
         // Firefox
         document.mozCancelFullScreen();
       } else if (document.webkitExitFullscreen) {
-        // Chrome, Safari and Opera
+        // Chrome, Safari e Opera
         document.webkitExitFullscreen();
       } else if (document.msExitFullscreen) {
         // IE/Edge
         document.msExitFullscreen();
       }
       setIsFullscreen(false);
+  
+      // Remove os estilos inline quando sair do modo de tela cheia
+      videoContainer.style.width = '';
+      videoContainer.style.height = '';
+      videoContainer.style.display = '';
+      videoContainer.style.justifyContent = '';
+      videoContainer.style.alignItems = '';
+      videoContainer.style.backgroundColor = '';
     }
   }
+  
 
   function handleMouseMove() {
     setIsControl(true);

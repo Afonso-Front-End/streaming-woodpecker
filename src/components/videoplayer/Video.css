@@ -9,20 +9,21 @@
 }
 
 .content-video {
-    background-color: #2A2C2E;
+    /* background-color: #2A2C2E; */
     border-radius: 5px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
 }
 
 video {
     background-color: black;
-    width: inherit;
-    height: inherit;
-    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+  
 }
 
 .container-controls {
