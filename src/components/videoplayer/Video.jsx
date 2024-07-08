@@ -8,7 +8,7 @@ import { RiDropdownList } from "react-icons/ri";
 import { TbPlayerSkipForward, TbPlayerSkipBack } from "react-icons/tb";
 import "./Video.css";
 
-const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo, setEpisodioSelecionado, temporadaAtual, setCurrentEpisodeIndex, handleListTemp , setEpisodeActive}, ref) => {
+const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, handleListEpisodes, playNextVideo, setEpisodioSelecionado, temporadaAtual, setCurrentEpisodeIndex, handleListTemp, setEpisodeActive }, ref) => {
   const handleVideoLoadedMedata = () => {
     setLoading(false);
     exiteseason()
@@ -174,40 +174,48 @@ const VideoPlayer = forwardRef(({ episodioSelecionado, setLoading, exiteseason, 
   }
 
   async function playNextVideo() {
-    setCurrentEpisodeIndex(prevIndex => {
-      const nextIndex = prevIndex + 1;
+    const index = temporadaAtual.data.arquivo.findIndex(ep => ep.id === episodioSelecionado.id);
 
-      if (nextIndex >= temporadaAtual.data.arquivo.length) {
-        console.log("No more episodes to play.");
-        return prevIndex;
-      }
+    if (index === -1) {
+      console.log("Episódio não encontrado na temporada atual.");
+      return;
+    }
 
-      const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
-      console.log(nextIndex)
-      setEpisodeActive(nextEpisode.id)
-      console.log(nextEpisode)
-      setEpisodioSelecionado(nextEpisode);
+    // Verificar se há um próximo episódio
+    const nextEpisodeIndex = index + 1;
+    if (nextEpisodeIndex >= temporadaAtual.data.arquivo.length) {
+      console.log("Este é o último episódio da temporada.");
+      return;
+    }
 
+    const nextEpisode = temporadaAtual.data.arquivo[nextEpisodeIndex];
 
-      return nextIndex;
-    });
+    setEpisodeActive(nextEpisode.id)
+    setEpisodioSelecionado(nextEpisode);
   }
 
   async function playNextVideoLeft() {
-    setCurrentEpisodeIndex(prevIndex => {
-      const nextIndex = prevIndex - 1;
+    const index = temporadaAtual.data.arquivo.findIndex(ep => ep.id === episodioSelecionado.id);
 
-      if (nextIndex < 0) {
-        console.log("No more previous episodes to play.");
-        return prevIndex;
-      }
+    if (index === -1) {
+      console.log("Episódio não encontrado na temporada atual.");
+      return;
+    }
 
-      const nextEpisode = temporadaAtual.data.arquivo[nextIndex];
-      setEpisodioSelecionado(nextEpisode);
+    // Verificar se há um próximo episódio
+    const nextEpisodeIndex = index - 1;
+    if (nextEpisodeIndex < 0) {
+      console.log("No more previous episodes to play.");
+      return;
+    }
 
-      return nextIndex;
-    });
+    const nextEpisode = temporadaAtual.data.arquivo[nextEpisodeIndex];
+
+    setEpisodeActive(nextEpisode.id)
+    setEpisodioSelecionado(nextEpisode);
+
   }
+
 
   useEffect(() => {
     if (isDragging) {

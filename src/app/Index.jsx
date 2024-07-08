@@ -19,7 +19,6 @@ export default function Index() {
     
 
     function handleListEpisodes() {
-        console.log(temporadaAtual)
         setTemporadaSelecionada(temporadaAtual)
     }
 
@@ -29,9 +28,6 @@ export default function Index() {
 
     function handleListTempExite() {
         setListTemp(null)
-        console.log(temporadaAtual)
-        // temporadaAtual.forEach(element => {
-        // });
     }
 
     function selectSeason(index, data) {

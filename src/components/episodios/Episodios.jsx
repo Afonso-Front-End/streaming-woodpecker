@@ -15,8 +15,6 @@ const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, 
             setLoading(true)
             setEpisodioSelecionado(episode);
             setEpisodeActive(episode.id)
-            console.log(episode)
-            console.log("nada selecionado")
         } else if (episode.id === episodioSelecionado.id) {
             setListTemp(null)
             exiteseason()
@@ -25,7 +23,6 @@ const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, 
             setEpisodioSelecionado(episode);
             setEpisodeActive(episode.id)
             setListTemp(null)
-            console.log(episode)
         }
 
     }
