@@ -32,6 +32,7 @@ const Episodios = forwardRef(({ temporada, exiteseason, setEpisodioSelecionado, 
 
         <div className="container-episodios" ref={ref}>
             <div className="content-episodios">
+                
                 <div className="banner-temp" style={{ backgroundImage: `url(${temporada.data.imagem})` }}>
                     <div className="banner-gradient"></div>
                     <button id="exite-season" onClick={exiteseason}>

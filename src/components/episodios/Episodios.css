@@ -33,16 +33,9 @@
     height: 46vh;
     position: relative;
     overflow: hidden;
-    background-position: center;
+    background-position: bottom center;
     background-size: cover;
-
-}
-
-.banner-temp img {
-    position: absolute;
-    /* width: 100%; */
-    /* height: 100%; */
-    z-index: 0;
+    object-fit: cover;
 }
 
 .banner-gradient {
@@ -132,6 +125,7 @@
     position: relative;
     overflow: hidden;
 }
+
 .id-episode {
     background-color: #181818;
     position: absolute;
@@ -207,26 +201,10 @@
         }
     }
 }
+
 .epidodeActive {
-    background-color: #333333; 
+    background-color: #333333;
 }
-/* 
-
-
-
-
-
-
-.info-episode h3{
-    font-size: 14px;
-    color: #FFFFFF;
-}
-.info-episode p{
-  text-wrap: wrap;
-  font-size: 12px;
-  margin-top: 10px;
-  color: #FFFFFF;
-} */
 
 #exite-season {
     position: absolute;
@@ -238,3 +216,4 @@
     justify-content: center;
     cursor: grab !important;
 }
+
