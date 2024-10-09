@@ -1,12 +1,15 @@
 @import url("./app/Index.css");
+
 @font-face {
     font-family: "Montserrat";
     src: url("./fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
+
 @font-face {
     font-family: "LibreBarcode128Text";
     src: url("./fonts/Libre_Barcode_128_Text/LibreBarcode128Text-Regular.ttf");
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +33,6 @@
 
 #root {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     background-color: #242424;
 }
