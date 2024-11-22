@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useParams } from "react-router-dom";
+// import { useRef, useState } from "react";
+// import { useLocation } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { ContainerPlay, ContentPlay, Video, Source } from "./style/VideoPlayer";
 
 import VideoControls from "../VideoPlay/components/VideoControls";
