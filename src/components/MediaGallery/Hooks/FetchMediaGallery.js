@@ -9,7 +9,7 @@ const FetchMediaGallery = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/category');
+                const response = await axios.get('https://api-node-streaming.vercel.app/api/category');
                 if (response.status === 200) {
                     setData(response.data);
                     setRemoveLoading(true)
